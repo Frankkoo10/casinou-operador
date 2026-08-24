@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Operador — Victory</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body class="op-body">
+    <div id="op-gate" class="op-gate">
+        <img src="Logo-pricipio.png" alt="Victory" class="inicio-logo">
+        <div class="auth-box">
+            <h2>Panel operador</h2>
+            <p class="instruction">Entrá con la cuenta que tenga rol operador en Supabase.</p>
+            <input type="email" id="op-email" placeholder="Correo del operador">
+            <input type="password" id="op-pass" placeholder="Contraseña">
+            <button type="button" id="op-login" class="btn-primary">Entrar al panel</button>
+            <p id="op-gate-msg" class="error-msg"></p>
+            <a href="https://frankkoo10.github.io/casinou/" class="auth-link">Volver al casino</a>
+            <p class="auth-link"><a href="admin.html" style="color:#f185ff;">Acceso administrador</a></p>
+        </div>
+    </div>
+
+    <div id="op-app" class="op-app hidden">
+        <header class="op-header">
+            <img src="Logo-inicial.png" alt="" class="main-logo">
+            <h1>Caja y soporte Victory</h1>
+            <div class="op-header-right">
+                <span id="op-who">Operador</span>
+                <button type="button" id="op-logout">Salir</button>
+            </div>
+        </header>
+
+        <div class="op-grid">
+            <section class="op-col">
+                <h3>Chats</h3>
+                <div id="op-convos" class="op-convos">Cargando conversaciones...</div>
+                <div class="prevencion-box">
+                    <div class="prevencion-media"><img src="_consintizacion6_.png" alt="Apostémosle a la vida, no al riesgo"></div>
+                </div>
+            </section>
+
+            <section class="op-col op-col-chat">
+                <div class="op-chat-head">
+                    <strong id="op-chat-title">Elegí un jugador</strong>
+                    <small id="op-chat-sub"></small>
+                </div>
+                <div id="op-messages" class="chat-messages op-messages">
+                    <p class="chat-empty">Seleccioná un chat a la izquierda.</p>
+                </div>
+                <form id="op-chat-form" class="chat-form">
+                    <input type="text" id="op-chat-input" placeholder="Responder como operador..." maxlength="500" autocomplete="off">
+                    <button type="submit">Enviar</button>
+                </form>
+            </section>
+
+            <section class="op-col">
+                <h3>Cajero</h3>
+                <div class="op-caja">
+                    <label>Buscar jugador (usuario o mail)</label>
+                    <input type="text" id="caja-q" placeholder="usuario o correo">
+                    <button type="button" id="caja-buscar" class="btn-primary">Buscar</button>
+                    <div id="caja-resultado" class="caja-resultado"></div>
+                    <label>Monto de fichas</label>
+                    <input type="number" id="caja-monto" min="1" value="5000">
+                    <div class="quick-amounts">
+                        <button type="button" data-caja="1000">+$1k</button>
+                        <button type="button" data-caja="5000">+$5k</button>
+                        <button type="button" data-caja="10000">+$10k</button>
+                        <button type="button" data-caja="50000">+$50k</button>
+                    </div>
+                    <button type="button" id="caja-cargar" class="btn-mi-cuenta">Cargar fichas</button>
+                    <button type="button" id="caja-descontar" class="btn-retiro-outline">Descontar fichas</button>
+                    <p id="caja-msg" class="deposit-msg"></p>
+                </div>
+
+                <h3>Solicitudes pendientes</h3>
+                <div id="op-solicitudes" class="acc-list">Cargando...</div>
+
+                <div class="prevencion-box">
+                    <h4>Recordatorio</h4>
+                    <div class="prevencion-media"><img src="_consintizacion5_.png" alt="Las apuestas no te hacen más fuerte, te hacen dependiente"></div>
+                    <p>Línea de ayuda para jugadores: 0800-444-4000.</p>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="shared.js"></script>
+    <script src="operador.js"></script>
+</body>
+</html>
